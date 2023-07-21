@@ -32,7 +32,7 @@ func input_event(viewport: Node, event: InputEvent, shape_idx: int,which:Node2D)
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.is_pressed():
 			candidates.sort_custom(self,"depth_sort")
-			var last = candidates.back()
+			var last = null if candidates.empty() else candidates.back()
 			if is_instance_valid(last):
 				last.raise()
 				current = last
