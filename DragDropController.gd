@@ -33,7 +33,7 @@ func input_event(viewport: Node, event: InputEvent, shape_idx: int,which:Node2D)
 		if event.is_pressed():
 			candidates.sort_custom(self,"depth_sort")
 			var last = candidates.back()
-			if last:
+			if is_instance_valid(last):
 				last.raise()
 				current = last
 				drag_offset = current.get_global_mouse_position() - current.global_position
