@@ -11,7 +11,7 @@ export var drag_group = "draggable"
 func _ready():
 	var draggables = get_tree().get_nodes_in_group(drag_group)
 	for dragable in draggables:
-		if dragable is CollisionObject2D:
+		if dragable is CollisionObject2D and not dragable.is_connected("input_event", self, "input_event"):
 			dragable.connect("mouse_entered",self,"mouse_entered",[dragable])
 			dragable.connect("mouse_exited",self,"mouse_exited",[dragable])
 			dragable.connect("input_event",self,"input_event",[dragable])
